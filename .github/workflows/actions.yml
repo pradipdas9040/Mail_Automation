@@ -2,7 +2,7 @@ name: run mail.py
 
 on:
   schedule:
-    - cron: '*/2 * * * *'
+    - cron: '0 0 * * *'
   push:
     branches: [ "main" ]
   pull_request:
