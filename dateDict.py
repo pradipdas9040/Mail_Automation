@@ -6,9 +6,9 @@ def return_info():
             'emogi' : '🥳'
         },
         '13-06' : {
-        'name' : 'Diptiman Da',
-        'email' : 'diptiman8777@gmail.com',
-        'emogi' : '🍻'
+            'name' : 'Diptiman Da',
+            'email' : 'diptiman8777@gmail.com',
+            'emogi' : '🍻'
         },
         '29-05' : {
             'name' : 'Kuntal',
