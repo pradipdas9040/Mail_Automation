@@ -5,10 +5,10 @@ def return_info():
             'email' : 'dhananjaymath7@gmail.com',
             'emogi' : '🥳'
         },
-        '27-07' : {
-            'name' : 'Dipti',
-            'email' : 'photorphoto1@gmail.com',
-            'emogi' : '🍻'
+        '13-06' : {
+        'name' : 'Diptiman Da',
+        'email' : 'diptiman8777@gmail.com',
+        'emogi' : '🍻'
         },
         '29-05' : {
             'name' : 'Kuntal',
