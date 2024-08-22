@@ -25,6 +25,11 @@ def return_info():
             'email' : 'piyalipaulmail@gmail.com',
             'emogi' : '🥳'
         },
+        '12-09' : {
+            'name' : 'Debu Da',
+            'email' : 'debprasadkundu1@gmail.com',
+            'emogi' : '🍻'
+        },
         '01-08' : {
             'name' : 'ghh',
             'email' : 'photorphoto1@gmail.com',
