@@ -32,6 +32,7 @@ jobs:
       - name: execute py script # run main.py
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
+          DECRYPTED_KEY: ${{ secrets.DECRYPTED_KEY }}
         run: python mail.py
           
       - name: commit files
