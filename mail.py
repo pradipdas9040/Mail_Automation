@@ -7,7 +7,7 @@ import datetime
 import logging
 import logging.handlers
 import os
-import dateDict
+import decrypt
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -24,7 +24,11 @@ logger.addHandler(logger_file_handler)
 today = datetime.date.today()
 formatted_date = today.strftime('%d-%m')
 
-date_dict = dateDict.return_info()
+try:
+  DECRYPTED_KEY = os.environ["DECRYPTED_KEY"]
+except:
+  logger.error('Decrypted key not available!')
+date_dict = decrypt.decrypt_database(str(DECRYPTED_KEY))
 
 def send_mail(name, send_from, send_to, subject, message, server, port, username, password, message_type='plain', use_tls=True):
     try:
@@ -50,7 +54,7 @@ try:
   try:
     SOME_SECRET = os.environ["SOME_SECRET"]
   except:
-    logger.error('Token not available!')
+    logger.error('Email pasword not available!')
   info_email_subject = f"Happy Birthday {date_dict[formatted_date]['emogi']}"
   name = date_dict[formatted_date]['name']
   info_email_body = f"Hiiii {name},\nHere's to another incredible year of life! Wishing you a birthday that's as awesome as you are...😊\n"
@@ -59,6 +63,6 @@ try:
   Server = 'smtp.gmail.com'
   Port = 587
   sender_email_id_password = str(SOME_SECRET) 
-  send_mail(name, send_from, send_to, subject=info_email_subject, message=info_email_body, server=Server, port=Port, username=send_from, password=sender_email_id_password, message_type='plain', use_tls=True)
+  send_mail(name, send_from, send_to, subject=info_email_subject, message=info_email_body, server=Server, port=Port, username=send_from, password=sender_email_id_password)
 except:
   logger.info('No birthday today')
