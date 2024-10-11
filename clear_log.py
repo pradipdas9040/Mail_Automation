@@ -6,7 +6,7 @@ import sys
 today = datetime.date.today().strftime('%d-%m')
 
 try:
-    if(today not in ['31-12', '31-05']):
+    if (today not in ['31-12', '31-05']):
         sys.exit(1) 
 
     # Function to read YAML file and get the extension
@@ -17,7 +17,7 @@ try:
     
     # Function to find files with the specified extension
     def find_files_with_extension(extension, directory='.'):
-        log_files = [f for f in os.listdir(directory) if f.endswith(extension)]
+        log_files = list(filter(lambda f: f.endswith(extension), os.listdir(directory)))
         return log_files[0]
     
     def clear_log(file_path):
@@ -27,11 +27,10 @@ try:
         print('log refreshed')
     
     log_extension = os.getenv('LOG_EXTENSION', '.log')
-    
-    print(f'log file extension:{log_extension}')
-    
+        
     # Search for log files in the current directory
     log_files = find_files_with_extension(log_extension)
+    print(f'log file name:{log_files}')
     
     if (log_files != None):
         clear_log(log_files)
