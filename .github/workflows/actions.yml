@@ -1,4 +1,4 @@
-name: run mail.py
+name: run mail automation
 
 on:
   schedule:
@@ -29,11 +29,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: execute py script # run main.py
+      - name: execute py script 
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
           DECRYPTED_KEY: ${{ secrets.DECRYPTED_KEY }}
-        run: python mail.py
+          log_extension: ".log"
+        run: |
+          python mail.py
+          python clear_log.py
           
       - name: commit files
         run: |
