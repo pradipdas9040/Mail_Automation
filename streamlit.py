@@ -4,6 +4,20 @@ from datetime import date
 import decrypt
 import encrypted
 import os
+import logging
+import logging.handlers
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+logger_file_handler = logging.handlers.RotatingFileHandler(
+    "mail.log",
+    maxBytes=1024 * 1024,
+    backupCount=1,
+    encoding="utf8",
+)
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+logger_file_handler.setFormatter(formatter)
+logger.addHandler(logger_file_handler)
 
 st.set_page_config(page_title="User Info to JSON", layout="centered")
 
@@ -50,7 +64,10 @@ if st.button("Generate JSON"):
         print('succesfully updated!!')
 
         # Encrypting the db;
-        encrypted.encrypt_db(DECRYPTED_KEY, date_dict)        
+        encrypted.encrypt_db(DECRYPTED_KEY, date_dict)  
+
+        logger.info(f"Entry added successfully for {name}")
 
     else:
         st.error("Please fill in Name and Email ❌")
+        logger.info(f"Entry failed")
