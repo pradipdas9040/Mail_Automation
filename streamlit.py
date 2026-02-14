@@ -1,7 +1,8 @@
 import streamlit as st
 import json
 from datetime import date
-import decrypt, encrypted
+import decrypt
+import encrypted
 import os
 
 st.set_page_config(page_title="User Info to JSON", layout="centered")
