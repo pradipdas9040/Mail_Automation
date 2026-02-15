@@ -38,6 +38,7 @@ jobs:
         run: |
           python mail.py
           python clear_log.py
+          python update_db.py
           
       - name: commit files
         run: |
