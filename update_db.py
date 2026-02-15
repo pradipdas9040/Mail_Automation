@@ -38,7 +38,7 @@ try:
     # Check if data exists
     if not response.data:
         print("empty db")
-        sys.exit(1) 
+        sys.exit(0) 
     
     # Format the data as requested
     formatted_data = {}
