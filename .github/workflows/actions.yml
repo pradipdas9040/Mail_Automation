@@ -33,6 +33,7 @@ jobs:
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
           DECRYPTED_KEY: ${{ secrets.DECRYPTED_KEY }}
+          SYPABASE_KEY: ${{ secrets.SYPABASE_KEY }}
           log_extension: ".log"
         run: |
           python mail.py
